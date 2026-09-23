@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chróma-Maker</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#0e0e11",
+            "inverse-surface": "#e5e1e7",
+            "on-tertiary": "#492532",
+            "secondary-container": "#4a4359",
+            "on-secondary-container": "#bab1ca",
+            "on-background": "#e5e1e7",
+            "inverse-on-surface": "#313034",
+            "on-primary-fixed-variant": "#4d3d76",
+            "surface-tint": "#d0bcff",
+            "outline": "#948f9a",
+            "surface-container-high": "#2b292d",
+            "primary-fixed-dim": "#d0bcff",
+            "error": "#ffb4ab",
+            "surface": "#141317",
+            "error-container": "#93000a",
+            "surface-bright": "#3a383d",
+            "surface-variant": "#353438",
+            "on-primary-container": "#594983",
+            "secondary": "#ccc2dc",
+            "surface-dim": "#141317",
+            "secondary-fixed": "#e9def9",
+            "on-tertiary-fixed": "#31111d",
+            "primary": "#e9ddff",
+            "on-surface": "#e5e1e7",
+            "tertiary-container": "#efb8c8",
+            "outline-variant": "#49454f",
+            "inverse-primary": "#665590",
+            "tertiary-fixed": "#ffd9e3",
+            "on-secondary-fixed": "#1e182b",
+            "surface-container-highest": "#353438",
+            "on-primary-fixed": "#210f48",
+            "primary-container": "#d0bcff",
+            "on-tertiary-container": "#704654",
+            "on-error": "#690005",
+            "on-error-container": "#ffdad6",
+            "surface-container": "#201f23",
+            "secondary-fixed-dim": "#ccc2dc",
+            "surface-container-low": "#1c1b1f",
+            "tertiary-fixed-dim": "#efb8c8",
+            "on-primary": "#37265e",
+            "on-tertiary-fixed-variant": "#633b48",
+            "primary-fixed": "#e9ddff",
+            "on-secondary": "#332d41",
+            "tertiary": "#ffd9e3",
+            "on-secondary-fixed-variant": "#4a4359",
+            "background": "#141317",
+            "on-surface-variant": "#cac4d0"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Roboto Flex"],
+            "headline-lg": ["Roboto Flex"],
+            "display-sm": ["Roboto Flex"],
+            "label-lg": ["Roboto Flex"],
+            "headline-md": ["Roboto Flex"],
+            "title-md": ["Roboto Flex"],
+            "body-lg": ["Roboto Flex"],
+            "display-md": ["Roboto Flex"],
+            "body-sm": ["Roboto Flex"],
+            "label-sm": ["Roboto Flex"],
+            "label-md": ["Roboto Flex"],
+            "body-md": ["Roboto Flex"],
+            "display-lg": ["Roboto Flex"],
+            "title-sm": ["Roboto Flex"],
+            "title-lg": ["Roboto Flex"]
+          },
+          "fontSize": {
+            "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+            "display-sm": ["36px", {"lineHeight": "44px", "fontWeight": "400"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "400"}],
+            "title-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "display-md": ["45px", {"lineHeight": "52px", "fontWeight": "400"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "label-sm": ["11px", {"lineHeight": "16px", "fontWeight": "500"}],
+            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "display-lg": ["57px", {"lineHeight": "64px", "fontWeight": "400"}],
+            "title-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+            "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Hide scrollbars for Android horizontal chip bar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased select-none min-h-screen flex flex-col justify-between overflow-x-hidden pb-28 pt-24 font-body-md text-body-md">
+<!-- Native Android System Status Bar (Overlay) -->
+<div class="fixed top-0 left-0 right-0 h-8 z-50 flex items-center justify-between px-6 bg-surface text-on-surface">
+<div class="text-label-md font-label-md font-medium tracking-tight">9:41</div>
+<div class="flex items-center gap-1.5 opacity-90">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- Shared Component: TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 h-16 w-full mt-6 bg-surface">
+<!-- Leading Icon -->
+<button aria-label="Undo" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest/20 active:scale-95 transition-transform duration-200 text-on-surface">
+<span class="material-symbols-outlined">undo</span>
+</button>
+<!-- Headline -->
+<div class="text-title-lg font-title-lg font-medium text-on-surface tracking-tight">
+      Chróma-Maker
+    </div>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-1">
+<button aria-label="Share Palette" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest/20 active:scale-95 transition-transform duration-200 text-on-surface">
+<span class="material-symbols-outlined">ios_share</span>
+</button>
+<button aria-label="Toggle Theme" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest/20 active:scale-95 transition-transform duration-200 text-on-surface">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas Content Area -->
+<main class="w-full max-w-md mx-auto px-4 flex flex-col flex-1 gap-4">
+<!-- Material 3 Filter Chips / Generator Harmony Mode Bar -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 px-1">
+<!-- Vibrant (Active M3 Filter Chip) -->
+<button class="flex items-center gap-1.5 h-8 px-4 rounded-full bg-secondary-container text-on-secondary-container border border-outline-variant/30 text-label-md font-label-md shrink-0 active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check</span>
+<span>Vibrant</span>
+</button>
+<!-- Pastel -->
+<button class="flex items-center gap-1.5 h-8 px-4 rounded-full bg-surface-container-low text-on-surface-variant border border-outline-variant text-label-md font-label-md shrink-0 active:scale-95 transition-all hover:bg-surface-container">
+<span>Pastel</span>
+</button>
+<!-- Monochromatic -->
+<button class="flex items-center gap-1.5 h-8 px-4 rounded-full bg-surface-container-low text-on-surface-variant border border-outline-variant text-label-md font-label-md shrink-0 active:scale-95 transition-all hover:bg-surface-container">
+<span>Monochromatic</span>
+</button>
+<!-- Chromahex -->
+<button class="flex items-center gap-1.5 h-8 px-4 rounded-full bg-surface-container-low text-on-surface-variant border border-outline-variant text-label-md font-label-md shrink-0 active:scale-95 transition-all hover:bg-surface-container">
+<span>Chromahex</span>
+</button>
+<!-- Random -->
+<button class="flex items-center gap-1.5 h-8 px-4 rounded-full bg-surface-container-low text-on-surface-variant border border-outline-variant text-label-md font-label-md shrink-0 active:scale-95 transition-all hover:bg-surface-container">
+<span>Random</span>
+</button>
+</div>
+<!-- Responsive Palette Swatches Display (Vertical Stack Native Mobile Flow) -->
+<section aria-label="Color Palette" class="flex flex-col gap-2.5 flex-1 w-full">
+<!-- Swatch 1: Deep Electric Indigo (#4338CA) -->
+<div class="group relative w-full h-24 rounded-2xl p-4 flex items-center justify-between text-white transition-all duration-200 active:scale-[0.99] cursor-pointer shadow-sm" style="background-color: #4338CA;">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-title-md font-title-md font-semibold tracking-wider">#4338CA</span>
+<span class="px-2 py-0.5 rounded-full bg-black/30 backdrop-blur-md text-[10px] font-label-sm font-semibold tracking-wide uppercase text-white/90">AAA</span>
+</div>
+<span class="text-label-md font-label-md text-white/80">Deep Electric Indigo</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Inspect details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Copy HEX">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Unlock">
+<span class="material-symbols-outlined text-[20px]">lock_open</span>
+</button>
+</div>
+</div>
+<!-- Swatch 2: Vibrant Orchid (#A855F7) - Active Inspected Card -->
+<div class="group relative w-full h-24 rounded-2xl p-4 flex items-center justify-between text-white transition-all duration-200 active:scale-[0.99] ring-2 ring-primary ring-offset-2 ring-offset-background cursor-pointer shadow-md" style="background-color: #A855F7;">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-title-md font-title-md font-semibold tracking-wider">#A855F7</span>
+<span class="px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-label-sm font-semibold tracking-wide uppercase text-white">Inspecting</span>
+</div>
+<span class="text-label-md font-label-md text-white/90">Vibrant Orchid</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-white/20 active:scale-90 transition-transform text-white shadow-sm" title="Active">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">tune</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Copy HEX">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+<!-- Locked State Icon -->
+<button class="w-10 h-10 rounded-full flex items-center justify-center bg-white/25 active:scale-90 transition-transform text-white shadow-sm" title="Locked">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+</button>
+</div>
+</div>
+<!-- Swatch 3: Solar Amber (#F59E0B) -->
+<div class="group relative w-full h-24 rounded-2xl p-4 flex items-center justify-between text-black transition-all duration-200 active:scale-[0.99] cursor-pointer shadow-sm" style="background-color: #F59E0B;">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-title-md font-title-md font-semibold tracking-wider">#F59E0B</span>
+<span class="px-2 py-0.5 rounded-full bg-black/15 backdrop-blur-md text-[10px] font-label-sm font-semibold tracking-wide uppercase text-black/80">AA 8.2</span>
+</div>
+<span class="text-label-md font-label-md text-black/75">Solar Amber</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/10 active:scale-90 transition-transform text-black/80" title="Inspect details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/10 active:scale-90 transition-transform text-black/80" title="Copy HEX">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/10 active:scale-90 transition-transform text-black/80" title="Unlock">
+<span class="material-symbols-outlined text-[20px]">lock_open</span>
+</button>
+</div>
+</div>
+<!-- Swatch 4: Coral Flame (#F43F5E) -->
+<div class="group relative w-full h-24 rounded-2xl p-4 flex items-center justify-between text-white transition-all duration-200 active:scale-[0.99] cursor-pointer shadow-sm" style="background-color: #F43F5E;">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-title-md font-title-md font-semibold tracking-wider">#F43F5E</span>
+<span class="px-2 py-0.5 rounded-full bg-black/25 backdrop-blur-md text-[10px] font-label-sm font-semibold tracking-wide uppercase text-white/90">AAA</span>
+</div>
+<span class="text-label-md font-label-md text-white/80">Coral Flame</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Inspect details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Copy HEX">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Unlock">
+<span class="material-symbols-outlined text-[20px]">lock_open</span>
+</button>
+</div>
+</div>
+<!-- Swatch 5: Mint Breeze (#10B981) -->
+<div class="group relative w-full h-24 rounded-2xl p-4 flex items-center justify-between text-white transition-all duration-200 active:scale-[0.99] cursor-pointer shadow-sm" style="background-color: #10B981;">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-title-md font-title-md font-semibold tracking-wider">#10B981</span>
+<span class="px-2 py-0.5 rounded-full bg-black/25 backdrop-blur-md text-[10px] font-label-sm font-semibold tracking-wide uppercase text-white/90">AA</span>
+</div>
+<span class="text-label-md font-label-md text-white/80">Mint Breeze</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Inspect details">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Copy HEX">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 active:scale-90 transition-transform text-white/90" title="Unlock">
+<span class="material-symbols-outlined text-[20px]">lock_open</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Material 3 Color Detail Inspection (Interactive BottomSheet Peek Card) -->
+<section class="mt-2 bg-surface-container-high rounded-2xl p-4 border border-outline-variant/30 flex flex-col gap-3 shadow-md">
+<div class="w-8 h-1 bg-on-surface-variant/40 rounded-full mx-auto mb-1"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full shadow-inner ring-1 ring-outline-variant/40" style="background-color: #A855F7;"></div>
+<div>
+<h2 class="text-title-sm font-title-sm font-medium text-on-surface">Vibrant Orchid</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Inspecting Active Swatch</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+            Locked
+          </button>
+</div>
+</div>
+<!-- Color Codes Breakdown Chips -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<button class="flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container-lowest hover:bg-surface-container active:scale-95 transition-all text-center">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">HEX</span>
+<span class="text-label-md font-label-md font-semibold text-primary">#A855F7</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container-lowest hover:bg-surface-container active:scale-95 transition-all text-center">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">RGB</span>
+<span class="text-label-md font-label-md font-semibold text-primary">168, 85, 247</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-xl bg-surface-container-lowest hover:bg-surface-container active:scale-95 transition-all text-center">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">HSL</span>
+<span class="text-label-md font-label-md font-semibold text-primary">271°, 91%, 65%</span>
+</button>
+</div>
+</section>
+<!-- Native M3 Transient Snackbar Preview -->
+<div class="fixed bottom-24 left-4 right-4 max-w-md mx-auto z-40 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-lg shadow-lg flex items-center justify-between transition-transform duration-300">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-inverse-primary text-[20px]">check_circle</span>
+<span class="text-body-md font-body-md font-medium">HEX #A855F7 copied to clipboard</span>
+</div>
+<button class="text-inverse-primary text-label-lg font-label-lg font-semibold hover:underline">
+        DISMISS
+      </button>
+</div>
+</main>
+<!-- M3 Extended Floating Action Button (FAB) -->
+<div class="fixed bottom-24 right-4 z-40 max-w-md mx-auto">
+<button aria-label="Generate Palette" class="flex items-center gap-2 h-14 px-5 rounded-2xl bg-primary-container text-on-primary-container font-label-lg text-label-lg font-semibold shadow-lg hover:shadow-xl active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span>
+<span>Generate</span>
+</button>
+</div>
+<!-- Shared Component: BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 h-20 flex justify-around items-center px-4 pb-safe bg-surface-container dark:bg-surface-container">
+<!-- Destination 1: Create (Active) -->
+<button class="flex flex-col items-center justify-center gap-1 group [&amp;&gt;div]:bg-secondary-container dark:[&amp;&gt;div]:bg-secondary-container [&amp;&gt;div]:text-on-secondary-container dark:[&amp;&gt;div]:text-on-secondary-container [&amp;&gt;span]:text-on-surface dark:[&amp;&gt;span]:text-on-surface font-medium active:scale-95 transition-all duration-200 ease-in-out w-16">
+<div class="w-16 h-8 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">palette</span>
+</div>
+<span class="text-label-md font-label-md">Create</span>
+</button>
+<!-- Destination 2: Explore (Inactive) -->
+<button class="flex flex-col items-center justify-center gap-1 group [&amp;&gt;div]:bg-transparent [&amp;&gt;div]:text-on-surface-variant dark:[&amp;&gt;div]:text-on-surface-variant [&amp;&gt;span]:text-on-surface-variant dark:[&amp;&gt;span]:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high rounded-full active:scale-95 transition-all duration-200 ease-in-out w-16">
+<div class="w-16 h-8 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+</div>
+<span class="text-label-md font-label-md">Explore</span>
+</button>
+<!-- Destination 3: Saved (Inactive) -->
+<button class="flex flex-col items-center justify-center gap-1 group [&amp;&gt;div]:bg-transparent [&amp;&gt;div]:text-on-surface-variant dark:[&amp;&gt;div]:text-on-surface-variant [&amp;&gt;span]:text-on-surface-variant dark:[&amp;&gt;span]:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high rounded-full active:scale-95 transition-all duration-200 ease-in-out w-16">
+<div class="w-16 h-8 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[22px]">bookmarks</span>
+</div>
+<span class="text-label-md font-label-md">Saved</span>
+</button>
+</nav>
+</body></html>
